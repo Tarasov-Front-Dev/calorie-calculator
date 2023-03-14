@@ -34,7 +34,7 @@ export class Calc {
     this.submit = this.elements.submit;
     this.reset = this.elements.reset;
     this.result = new Result();
-    this.article = document.querySelector('.calc')
+    this.container = document.querySelector('.container')
     this.heading = document.querySelector('.calc__heading');
 
     this._onFormInput = this._onFormInput.bind(this);
@@ -68,7 +68,7 @@ export class Calc {
 
   init() {
     // console.log(`Init..`);
-    // console.log(this.article);
+    // console.log(this.container);
 
     this.form.addEventListener('input', this._onFormInput);
     this.form.addEventListener('submit', this._onFormSubmit);
@@ -109,8 +109,8 @@ export class Calc {
     // console.log(this.form.offsetWidth);
     // console.log(window.offsetWidth);
 
-    const scaleRatio = window.outerHeight / (this.form.getBoundingClientRect().bottom + 15);
-    this.article.style.scale = scaleRatio;
+    const scaleRatio = window.outerHeight / (this.form.getBoundingClientRect().bottom + 120);
+    this.container.style.scale = scaleRatio;
     this.heading.scrollIntoView({block: 'start'})
   }
 }

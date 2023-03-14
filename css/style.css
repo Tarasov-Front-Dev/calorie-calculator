@@ -173,8 +173,8 @@ input[type="number"] {
 }
 
 .container {
-  /* width: 560px; */
-  max-width: 1160px;
+  width: 560px;
+  /* max-width: 1160px; */
   margin: 0 auto;
   /* padding-right: 300px;
   padding-left: 300px; */
