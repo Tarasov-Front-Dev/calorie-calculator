@@ -34,8 +34,9 @@ export class Calc {
     this.submit = this.elements.submit;
     this.reset = this.elements.reset;
     this.result = new Result();
-    this.container = document.querySelector('.container')
+    this.container = document.querySelector('.container');
     this.heading = document.querySelector('.calc__heading');
+    this.article = document.querySelector('.calc');
 
     this._onFormInput = this._onFormInput.bind(this);
     this._onFormSubmit = this._onFormSubmit.bind(this);
@@ -109,8 +110,13 @@ export class Calc {
     // console.log(this.form.offsetWidth);
     // console.log(window.offsetWidth);
 
-    const scaleRatio = window.outerHeight / (this.form.getBoundingClientRect().bottom + 120);
+    const scaleRatio = window.outerHeight / (this.form.getBoundingClientRect().bottom);
+    const leftMarginCompens = (this.container.offsetWidth * scaleRatio - this.container.offsetWidth) / 2;
+    // console.log(leftMarginCompens);
+
+
     this.container.style.scale = scaleRatio;
+    this.article.style.marginLeft = leftMarginCompens + 'px';
     this.heading.scrollIntoView({block: 'start'})
   }
 }

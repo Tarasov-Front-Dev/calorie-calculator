@@ -56,7 +56,7 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 
 html {
@@ -173,11 +173,10 @@ input[type="number"] {
 }
 
 .container {
-  width: 560px;
+  width: 510px;
   /* max-width: 1160px; */
   margin: 0 auto;
-  /* padding-right: 300px;
-  padding-left: 300px; */
+  padding: 0 10px;
 }
 
 .container--no-padding {
@@ -195,7 +194,7 @@ input[type="number"] {
 }
 
 .heading-main {
-  font-size: 64px;
+  font-size: 60px;
   line-height: 83px;
 }
 
@@ -207,7 +206,7 @@ input[type="number"] {
 .calc {
   padding-top: 40px;
   padding-bottom: 50px;
-  margin: 0 auto;
+  /* margin: 0 auto; */
 }
 
 .calc__heading {
