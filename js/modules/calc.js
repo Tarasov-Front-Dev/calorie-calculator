@@ -34,10 +34,13 @@ export class Calc {
     this.submit = this.elements.submit;
     this.reset = this.elements.reset;
     this.result = new Result();
+    this.article = document.querySelector('.calc')
+    this.heading = document.querySelector('.calc__heading');
 
     this._onFormInput = this._onFormInput.bind(this);
     this._onFormSubmit = this._onFormSubmit.bind(this);
     this._onFormReset = this._onFormReset.bind(this);
+    this._scale = this._scale.bind(this);
   }
 
   _onFormInput(evt) {
@@ -58,18 +61,20 @@ export class Calc {
     // console.log(`Reset..`);
     this.submit.disabled = true;
     this.reset.disabled = true;
-    this.form.scrollIntoView({block: 'start', behavior: 'smooth'});
+    this.heading.scrollIntoView({block: 'start', behavior: 'smooth'});
 
     this.result.hide();
   }
 
   init() {
     // console.log(`Init..`);
-    // console.log([...this.parameters]);
+    // console.log(this.article);
 
     this.form.addEventListener('input', this._onFormInput);
     this.form.addEventListener('submit', this._onFormSubmit);
     this.form.addEventListener('reset', this._onFormReset);
+
+    this._scale();
   }
 
   calcCalories() {    
@@ -96,5 +101,12 @@ export class Calc {
 
   calcCaloriesMax(norm) {
     return Math.round(norm * CaloriesRatio.MAX);
+  }
+
+  _scale() {
+    // Have to add scale coz CSS it's a JS app, not a design prod. Now it looks cool!
+    const scaleRatio = window.outerHeight / (this.form.getBoundingClientRect().bottom + 30);
+    this.article.style.scale = scaleRatio;
+    this.heading.scrollIntoView({block: 'start'})
   }
 }

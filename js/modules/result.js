@@ -16,7 +16,7 @@ export class Result {
     this.max.textContent = numberFormat(data.max);
 
     this.root.classList.remove('calc__result--hidden');
-    this.root.scrollIntoView({block: 'center', behavior: 'smooth'})
+    this.root.scrollIntoView({block: 'end', behavior: 'smooth'})
   }
 
   hide() {
