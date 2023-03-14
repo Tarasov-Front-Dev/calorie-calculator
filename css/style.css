@@ -203,12 +203,12 @@ input[type="number"] {
   line-height: 41px;
 }
 
-.counter {
+.calc {
   padding-top: 40px;
   padding-bottom: 50px;
 }
 
-.counter__heading {
+.calc__heading {
   margin: 0;
   margin-bottom: 22px;
 
@@ -216,14 +216,14 @@ input[type="number"] {
   text-align: center;
 }
 
-.counter__form,
-.counter__result {
+.calc__form,
+.calc__result {
   padding: 32px 32px;
 
   background-color: var(--color-background-main);
 }
 
-.counter__form {
+.calc__form {
   margin-bottom: 20px;
   padding-top: 39px;
   padding-bottom: 43px;
@@ -231,7 +231,7 @@ input[type="number"] {
   border-radius: 16px;
 }
 
-.counter__result {
+.calc__result {
   opacity: 1;
   visibility: visible;
   border-radius: 12px;
@@ -240,18 +240,18 @@ input[type="number"] {
   transition-property: opacity, visibility;
 }
 
-.counter__result--hidden {
+.calc__result--hidden {
   opacity: 0;
   visibility: hidden;
 }
 
-.counter__result > .heading {
+.calc__result > .heading {
   margin-bottom: 12px;
 
   color: var(--color-accent);
 }
 
-.counter__result-list {
+.calc__result-list {
   display: flex;
   justify-content: space-between;
   margin: 0;
@@ -260,11 +260,11 @@ input[type="number"] {
   list-style: none;
 }
 
-.counter__result-item {
+.calc__result-item {
   max-width: 124px;
 }
 
-.counter__result-item h3 {
+.calc__result-item h3 {
   margin: 0;
   margin-bottom: 2px;
 
@@ -273,7 +273,7 @@ input[type="number"] {
   line-height: 26px;
 }
 
-.counter__result-item p {
+.calc__result-item p {
   margin: 0;
 
   color: var(--color-gray-dark);
