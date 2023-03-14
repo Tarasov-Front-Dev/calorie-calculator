@@ -59,7 +59,7 @@ body {
 }
 
 html {
-  min-width: 1160px;
+  min-width: 600px;
 }
 
 body {
@@ -86,7 +86,7 @@ body {
   -webkit-box-flex: 1;
   -ms-flex: 1 0 auto;
 
-  background-image: url("../img/main-background.jpg");
+  background-image: url("../img/cool-orange.jpg");
   background-position: 0 0;
   background-repeat: no-repeat;
   background-size: cover;
@@ -172,11 +172,11 @@ input[type="number"] {
 }
 
 .container {
-  width: 100%;
+  width: 560px;
   max-width: 1160px;
   margin: 0 auto;
-  padding-right: 300px;
-  padding-left: 300px;
+  /* padding-right: 300px;
+  padding-left: 300px; */
 }
 
 .container--no-padding {
@@ -206,6 +206,7 @@ input[type="number"] {
 .calc {
   padding-top: 40px;
   padding-bottom: 50px;
+  margin: 0 auto;
 }
 
 .calc__heading {
