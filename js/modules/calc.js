@@ -33,6 +33,7 @@ export class Calc {
     this.parameters = this.elements.parameters.elements;
     this.submit = this.elements.submit;
     this.reset = this.elements.reset;
+    this.result = new Result();
 
     this._onFormInput = this._onFormInput.bind(this);
     this._onFormSubmit = this._onFormSubmit.bind(this);
@@ -48,13 +49,18 @@ export class Calc {
   _onFormSubmit(evt) {
     evt.preventDefault();
     console.log(`Submit..`);
+
+    const calloriesData = this.calcCalories();
+    this.result.show(calloriesData);
   }
 
   _onFormReset() {
     console.log(`Reset..`);
     this.submit.disabled = true;
     this.reset.disabled = true;
-    this.form.scrollIntoView({block: 'start', behavior: 'smooth'})
+    this.form.scrollIntoView({block: 'start', behavior: 'smooth'});
+
+    this.result.hide();
   }
 
   init() {
@@ -64,5 +70,31 @@ export class Calc {
     this.form.addEventListener('input', this._onFormInput);
     this.form.addEventListener('submit', this._onFormSubmit);
     this.form.addEventListener('reset', this._onFormReset);
+  }
+
+  calcCalories() {    
+    const norm = this.calcCaloriesNorm();
+    const min = this.calcCaloriesMin(norm);
+    const max = this.calcCaloriesMax(norm);
+    
+    return {norm, min, max};
+  }
+
+  calcCaloriesNorm() {
+    const age = PhysicalParamRatio.AGE * this.parameters.age.value;
+    const height = PhysicalParamRatio.HEIGHT * this.parameters.height.value;
+    const weight = PhysicalParamRatio.WEIGHT * this.parameters.weight.value;
+    const gender = GenderRatio[this.form.gender.value.toUpperCase()];
+    const activity = ActivityRatio[this.form.activity.value.toUpperCase()];
+
+    return Math.round((weight + height - age + gender) * activity);
+  }
+
+  calcCaloriesMin(norm) {
+    return Math.round(norm * CaloriesRatio.MIN);
+  }
+
+  calcCaloriesMax(norm) {
+    return Math.round(norm * CaloriesRatio.MAX);
   }
 }
