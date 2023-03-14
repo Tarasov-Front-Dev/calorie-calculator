@@ -29,9 +29,35 @@ const GenderRatio = {
 export class Calc {
   constructor(form) {
     this.form = form;
+    this.elements = this.form.elements;
+    this.parameters = this.elements.parameters.elements;
+    this.submit = this.elements.submit;
+    this.reset = this.elements.reset;
+
+    this._onFormInput = this._onFormInput.bind(this);
+  }
+
+  _onFormInput(evt) {
+    if (evt.target.type === 'text') evt.target.value = inputFormat(evt.target);
+    if (evt.target.value && this.reset.disabled) this.reset.disabled = false;
+    if ([...this.parameters].every(el => el.value)) this.submit.disabled = false;
+  }
+
+  _onFormSubmit(evt) {
+    evt.preventDefault();
+    console.log(`Submit..`);
+  }
+
+  _onFormReset(evt) {
+    console.log(`Reset..`);
   }
 
   init() {
     console.log(`Init..`);
+    // console.log([...this.parameters]);
+
+    this.form.addEventListener('input', this._onFormInput);
+    this.form.addEventListener('submit', this._onFormSubmit);
+    this.form.addEventListener('reset', this._onFormReset);
   }
 }
