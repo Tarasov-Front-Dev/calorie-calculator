@@ -48,14 +48,14 @@ export class Calc {
 
   _onFormSubmit(evt) {
     evt.preventDefault();
-    console.log(`Submit..`);
+    // console.log(`Submit..`);
 
     const calloriesData = this.calcCalories();
     this.result.show(calloriesData);
   }
 
   _onFormReset() {
-    console.log(`Reset..`);
+    // console.log(`Reset..`);
     this.submit.disabled = true;
     this.reset.disabled = true;
     this.form.scrollIntoView({block: 'start', behavior: 'smooth'});
@@ -64,7 +64,7 @@ export class Calc {
   }
 
   init() {
-    console.log(`Init..`);
+    // console.log(`Init..`);
     // console.log([...this.parameters]);
 
     this.form.addEventListener('input', this._onFormInput);
