@@ -34,14 +34,11 @@ export class Calc {
     this.submit = this.elements.submit;
     this.reset = this.elements.reset;
     this.result = new Result();
-    this.container = document.querySelector('.container');
     this.heading = document.querySelector('.calc__heading');
-    this.article = document.querySelector('.calc');
 
     this._onFormInput = this._onFormInput.bind(this);
     this._onFormSubmit = this._onFormSubmit.bind(this);
     this._onFormReset = this._onFormReset.bind(this);
-    this._scale = this._scale.bind(this);
   }
 
   _onFormInput(evt) {
@@ -74,8 +71,8 @@ export class Calc {
     this.form.addEventListener('input', this._onFormInput);
     this.form.addEventListener('submit', this._onFormSubmit);
     this.form.addEventListener('reset', this._onFormReset);
-
-    this._scale();
+    
+    this.heading.scrollIntoView({block: 'start', behavior: 'smooth'});
   }
 
   calcCalories() {    
@@ -102,21 +99,5 @@ export class Calc {
 
   calcCaloriesMax(norm) {
     return Math.round(norm * CaloriesRatio.MAX);
-  }
-
-  _scale() {
-    // Have to add scale coz it's a JS app, and I don't want to add @media in CSS. Now it looks cool!
-    // console.log(this.form.getBoundingClientRect())
-    // console.log(this.form.offsetWidth);
-    // console.log(window.offsetWidth);
-
-    const scaleRatio = window.outerHeight / (this.form.getBoundingClientRect().bottom);
-    const leftMarginCompens = (this.container.offsetWidth * scaleRatio - this.container.offsetWidth) / 2;
-    // console.log(leftMarginCompens);
-
-
-    this.container.style.scale = scaleRatio;
-    this.article.style.marginLeft = leftMarginCompens + 'px';
-    this.heading.scrollIntoView({block: 'start'})
   }
 }
