@@ -35,6 +35,8 @@ export class Calc {
     this.reset = this.elements.reset;
 
     this._onFormInput = this._onFormInput.bind(this);
+    this._onFormSubmit = this._onFormSubmit.bind(this);
+    this._onFormReset = this._onFormReset.bind(this);
   }
 
   _onFormInput(evt) {
@@ -48,8 +50,11 @@ export class Calc {
     console.log(`Submit..`);
   }
 
-  _onFormReset(evt) {
+  _onFormReset() {
     console.log(`Reset..`);
+    this.submit.disabled = true;
+    this.reset.disabled = true;
+    this.form.scrollIntoView({block: 'start', behavior: 'smooth'})
   }
 
   init() {
