@@ -106,8 +106,8 @@ export class Calc {
   _scale() {
     // Have to add scale coz it's a JS app, and I don't want to add @media in CSS. Now it looks cool!
     // console.log(this.form.getBoundingClientRect())
-    console.log(this.form.offsetWidth);
-    console.log(window.offsetWidth);
+    // console.log(this.form.offsetWidth);
+    // console.log(window.offsetWidth);
 
     const scaleRatio = window.outerHeight / (this.form.getBoundingClientRect().bottom + 15);
     this.article.style.scale = scaleRatio;
