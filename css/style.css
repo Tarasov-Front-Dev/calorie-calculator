@@ -648,3 +648,7 @@ input[type="number"] {
 
   cursor: not-allowed;
 }
+
+span.opacity--hidden{
+  opacity: 0;
+}
