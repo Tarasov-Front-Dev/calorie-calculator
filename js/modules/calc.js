@@ -65,6 +65,10 @@ export class Calc {
     this.result.hide();
   }
 
+  iOsNoScale(evt) {
+    if (evt.scale !== 1) evt.preventDefault();
+  }
+
   init() {
     // console.log(`Init..`);
     // console.log(this.container);
@@ -72,6 +76,8 @@ export class Calc {
     this.form.addEventListener('input', this._onFormInput);
     this.form.addEventListener('submit', this._onFormSubmit);
     this.form.addEventListener('reset', this._onFormReset);
+
+    document.addEventListener('touchmove', this.iOsNoScale);
     
     this.article.scrollIntoView({block: 'start', behavior: 'smooth'});
   }
