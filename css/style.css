@@ -86,12 +86,12 @@ body {
   -webkit-box-flex: 1;
   -ms-flex: 1 0 auto;
   
-  min-width: 500px;
+  /* min-width: 500px; */
   padding: 0 10px;
 
   background-image: url("../img/cool-orange.jpg");
   background-position: 0 0;
-  background-repeat: no-repeat;
+  background-repeat: repeat-y;
   background-size: cover;
   background-color: var(--color-accent);
 }
