@@ -34,6 +34,7 @@ export class Calc {
     this.submit = this.elements.submit;
     this.reset = this.elements.reset;
     this.result = new Result();
+    this.article = document.querySelector('.calc');
     this.heading = document.querySelector('.calc__heading');
 
     this._onFormInput = this._onFormInput.bind(this);
@@ -59,7 +60,7 @@ export class Calc {
     // console.log(`Reset..`);
     this.submit.disabled = true;
     this.reset.disabled = true;
-    this.heading.scrollIntoView({block: 'start', behavior: 'smooth'});
+    this.article.scrollIntoView({block: 'start', behavior: 'smooth'});
 
     this.result.hide();
   }
@@ -72,7 +73,7 @@ export class Calc {
     this.form.addEventListener('submit', this._onFormSubmit);
     this.form.addEventListener('reset', this._onFormReset);
     
-    this.heading.scrollIntoView({block: 'start', behavior: 'smooth'});
+    this.article.scrollIntoView({block: 'start', behavior: 'smooth'});
   }
 
   calcCalories() {    
