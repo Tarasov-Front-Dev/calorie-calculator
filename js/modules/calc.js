@@ -66,6 +66,7 @@ export class Calc {
   }
 
   iOSNoScale(evt) {
+    // console.log(`In iOSNoScale..`)
     if (evt.scale !== 1) evt.scale = 1;
   }
 
@@ -77,7 +78,7 @@ export class Calc {
     this.form.addEventListener('submit', this._onFormSubmit);
     this.form.addEventListener('reset', this._onFormReset);
 
-    document.addEventListener('pointerdown', this.iOsNoScale);
+    document.addEventListener('pointerdown', this.iOSNoScale);
     
     this.article.scrollIntoView({block: 'start', behavior: 'smooth'});
   }
