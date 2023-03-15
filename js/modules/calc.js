@@ -35,7 +35,6 @@ export class Calc {
     this.reset = this.elements.reset;
     this.result = new Result();
     this.article = document.querySelector('.calc');
-    this.heading = document.querySelector('.calc__heading');
 
     this._onFormInput = this._onFormInput.bind(this);
     this._onFormSubmit = this._onFormSubmit.bind(this);
@@ -65,20 +64,12 @@ export class Calc {
     this.result.hide();
   }
 
-  // iOSNoScale(evt) {
-  //   // console.log(`In iOSNoScale..`)
-  //   if (evt.scale !== 1) evt.scale = 1;
-  // }
-
   init() {
     // console.log(`Init..`);
-    // console.log(this.container);
 
     this.form.addEventListener('input', this._onFormInput);
     this.form.addEventListener('submit', this._onFormSubmit);
     this.form.addEventListener('reset', this._onFormReset);
-
-    // document.addEventListener('pointerdown', this.iOSNoScale);
     
     this.article.scrollIntoView({block: 'start', behavior: 'smooth'});
   }
