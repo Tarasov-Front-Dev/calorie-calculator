@@ -65,10 +65,10 @@ export class Calc {
     this.result.hide();
   }
 
-  iOSNoScale(evt) {
-    // console.log(`In iOSNoScale..`)
-    if (evt.scale !== 1) evt.scale = 1;
-  }
+  // iOSNoScale(evt) {
+  //   // console.log(`In iOSNoScale..`)
+  //   if (evt.scale !== 1) evt.scale = 1;
+  // }
 
   init() {
     // console.log(`Init..`);
@@ -78,7 +78,7 @@ export class Calc {
     this.form.addEventListener('submit', this._onFormSubmit);
     this.form.addEventListener('reset', this._onFormReset);
 
-    document.addEventListener('pointerdown', this.iOSNoScale);
+    // document.addEventListener('pointerdown', this.iOSNoScale);
     
     this.article.scrollIntoView({block: 'start', behavior: 'smooth'});
   }
