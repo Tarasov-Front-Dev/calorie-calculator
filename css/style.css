@@ -63,7 +63,7 @@ html {
 }
 
 body {
-  width: 100%;
+  min-width: 440px;
 
   font-size: 18px;
   line-height: 21px;
