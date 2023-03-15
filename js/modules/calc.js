@@ -65,8 +65,8 @@ export class Calc {
     this.result.hide();
   }
 
-  iOsNoScale(evt) {
-    if (evt.scale !== 1) evt.preventDefault();
+  iOSNoScale(evt) {
+    if (evt.scale !== 1) evt.scale = 1;
   }
 
   init() {
@@ -77,7 +77,7 @@ export class Calc {
     this.form.addEventListener('submit', this._onFormSubmit);
     this.form.addEventListener('reset', this._onFormReset);
 
-    document.addEventListener('touchmove', this.iOsNoScale);
+    document.addEventListener('pointerdown', this.iOsNoScale);
     
     this.article.scrollIntoView({block: 'start', behavior: 'smooth'});
   }
